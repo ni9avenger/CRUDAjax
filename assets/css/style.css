@@ -1,3 +1,17 @@
 /*!
 * custom styles
 */
+
+body{
+    margin: auto 8%;
+}
+
+#pForm{
+    margin: auto 22.5%;
+}
+
+@media (max-width: 600px){
+    #pForm{
+        margin: auto;
+    }
+}

@@ -19,14 +19,13 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="#">CAP</a>
+        <a class="navbar-brand" href="index.php">CRUDAjax</a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse navbar-ex1-collapse">
         <ul class="nav navbar-nav">
-            <li class="active"><a href="index.php">Home</a></li>
-            <!-- <li><a href="#">Link</a></li> -->
+
         </ul>
         <ul class="nav navbar-nav navbar-right">
 

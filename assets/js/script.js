@@ -33,6 +33,7 @@ $(document).ready( function() {
 function getData(){
     $.ajax({
         type: "GET",
+        cache: false,
         url: "/CRUDApi/products",
         success: function(data){
             $("#pData").html("");

@@ -13,7 +13,7 @@ $(document).ready( function() {
             url: "/CRUDApi/products",
             data: $("#pForm").serialize(), 
             success: function(res){
-                $(".alert").addClass("alert-"+res.type)
+                $(".alert").removeClass().addClass("alert alert-"+res.type)
                 $("#msg").text(res.message);
                 $(".alert").show();
                 $("#pForm").trigger("reset");
@@ -89,7 +89,7 @@ function performAction(el){
             type: "DELETE",
             url: "/CRUDApi/products/"+del,
             success: function(res){
-                $(".alert").addClass("alert-"+res.type)
+                $(".alert").removeClass().addClass("alert alert-"+res.type)
                 $("#msg").text(res.message);
                 $(".alert").show();
                 hideAlert();

@@ -15,3 +15,8 @@ body{
         margin: auto;
     }
 }
+
+.alert{
+    display: none;
+    margin: auto 10%;
+}

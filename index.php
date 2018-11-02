@@ -1,7 +1,15 @@
 <?php include "includes/header.php"; ?>
 
 <div class="row">
+    
+    <div class="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        <strong>Message!</strong> <span id="msg"></span>
+    </div>
+    
+</div>
 
+<div class="row">
 <form role="form" id="pForm" method="POST">
     <legend>Product Details</legend>
 
@@ -41,7 +49,7 @@
             <th width="150px">Actions</th>
         </tr>
     </thead>
-    <tbody>
+    <tbody id="pData">
         <tr>
             <td>Lorem, ipsum.</td>
             <td>$120</td>

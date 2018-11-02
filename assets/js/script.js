@@ -6,7 +6,6 @@ $(document).ready( function() {
 
     getData();
 
-
     $("#pForm").on('submit',function(e){
         e.preventDefault();
         $.ajax({
@@ -23,6 +22,7 @@ $(document).ready( function() {
             }
         });
     });
+
 });
 
 function getData(){
@@ -51,12 +51,16 @@ function getData(){
                 $('<button/>', {
                     'type' : 'button',
                     'class' : 'btn btn-sm btn-primary',
+                    'data-edit': elm.id,
+                    'onClick': 'performAction(this)',
                     html: 'Update'
                 }).appendTo(td);
     
                 $('<button/>', {
                     'type' : 'button',
                     'class' : 'btn btn-sm btn-danger',
+                    'data-del': elm.id,
+                    'onClick': 'performAction(this)',
                     html: 'Delete'
                 }).appendTo(td);
 
@@ -73,4 +77,24 @@ function hideAlert(){
     $(".alert").fadeTo(2000, 500).slideUp(500, function(){
         $(".alert").slideUp(500);
     });
+}
+
+function performAction(el){
+    elm = $(el);
+    console.log(elm.attr("data-del"));
+    del = elm.attr("data-del");
+    edit = elm.attr("data-edit");
+    if( typeof del !== typeof undefined && del !== false){
+        $.ajax({
+            type: "DELETE",
+            url: "/CRUDApi/products/"+del,
+            success: function(res){
+                $(".alert").addClass("alert-"+res.type)
+                $("#msg").text(res.message);
+                $(".alert").show();
+                hideAlert();
+                getData();
+            }
+        }); 
+    }
 }

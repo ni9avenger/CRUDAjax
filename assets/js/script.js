@@ -9,7 +9,6 @@ $(document).ready( function() {
 
     $("#pForm").on('submit',function(e){
         e.preventDefault();
-
         $.ajax({
             type: "POST",
             url: "/CRUDApi/products",
@@ -20,14 +19,10 @@ $(document).ready( function() {
                 $(".alert").show();
                 $("#pForm").trigger("reset");
                 hideAlert();
+                getData();
             }
-          });
-
-          getData();
+        });
     });
-
-
-
 });
 
 function getData(){

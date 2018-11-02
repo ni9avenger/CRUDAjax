@@ -20,3 +20,7 @@ body{
     display: none;
     margin: auto 10%;
 }
+
+button{
+    margin-right: 5px;
+}

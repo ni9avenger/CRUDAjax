@@ -29,8 +29,7 @@
     </div>
 
     <div class="form-group col-md-12 text-center">
-        <button type="submit" class="btn btn-success">Add</button>
-        <button type="reset" class="btn btn-primary">Reset</button>
+        <button type="submit" class="btn btn-success">Add</button><button type="reset" class="btn btn-primary">Reset</button>
     </div>
 </form>
 
@@ -41,33 +40,7 @@
 <legend>Products</legend>
 
 <table class="table table-striped table-responsive">
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Price</th>
-            <th>Description</th>
-            <th width="150px">Actions</th>
-        </tr>
-    </thead>
-    <tbody id="pData">
-        <tr>
-            <td>Lorem, ipsum.</td>
-            <td>$120</td>
-            <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo, aliquid!</td>
-            <td>
-                <button type="button" class="btn btn-sm btn-primary">Update</button>
-                <button type="button" class="btn btn-sm btn-danger">Delete</button>
-            </td>
-        </tr>
-        <tr>
-            <td>Lorem, ipsum.</td>
-            <td>$120</td>
-            <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo, aliquid!</td>
-            <td>
-                <button type="button" class="btn btn-sm btn-primary">Update</button>
-                <button type="button" class="btn btn-sm btn-danger">Delete</button>
-            </td>
-        </tr>
+    <thead id="pData">
     </tbody>
 </table>
 

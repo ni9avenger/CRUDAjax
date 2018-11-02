@@ -2,22 +2,22 @@
 
 <div class="row">
 
-<form role="form" id="pForm">
+<form role="form" id="pForm" method="POST">
     <legend>Product Details</legend>
 
     <div class="form-group col-md-6">
         <label for="pName">Name</label>
-        <input type="text" class="form-control" id="pName" name="pName" placeholder="Name">
+        <input type="text" class="form-control" id="pName" name="name" placeholder="Name">
     </div>
 
     <div class="form-group col-md-6">
         <label for="pPrice">Price</label>
-        <input type="text" class="form-control" id="pPrice" name="pPrice" placeholder="Price">
+        <input type="text" class="form-control" id="pPrice" name="price" placeholder="Price">
     </div>
 
     <div class="form-group col-md-12">
         <label for="pDescription">Description</label>
-        <textarea class="form-control" id="pDescription" name="pDescription" placeholder="Description" rows="3"></textarea>
+        <textarea class="form-control" id="pDescription" name="description" placeholder="Description" rows="3"></textarea>
     </div>
 
     <div class="form-group col-md-12 text-center">

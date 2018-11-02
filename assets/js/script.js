@@ -7,6 +7,27 @@ $(document).ready( function() {
     getData();
 
 
+    $("#pForm").on('submit',function(e){
+        e.preventDefault();
+
+        $.ajax({
+            type: "POST",
+            url: "/CRUDApi/products",
+            data: $("#pForm").serialize(), 
+            success: function(res){
+                $(".alert").addClass("alert-"+res.type)
+                $("#msg").text(res.message);
+                $(".alert").show();
+                $("#pForm").trigger("reset");
+                hideAlert();
+            }
+          });
+
+          getData();
+    });
+
+
+
 });
 
 function getData(){
@@ -49,4 +70,10 @@ function getData(){
 
         }
       });
+}
+
+function hideAlert(){
+    $(".alert").fadeTo(2000, 500).slideUp(500, function(){
+        $(".alert").slideUp(500);
+    });
 }

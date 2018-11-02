@@ -8,19 +8,41 @@ $(document).ready( function() {
 
     $("#pForm").on('submit',function(e){
         e.preventDefault();
-        $.ajax({
-            type: "POST",
-            url: "/CRUDApi/products",
-            data: $("#pForm").serialize(), 
-            success: function(res){
-                $(".alert").removeClass().addClass("alert alert-"+res.type)
-                $("#msg").text(res.message);
-                $(".alert").show();
-                $("#pForm").trigger("reset");
-                hideAlert();
-                getData();
-            }
-        });
+        edit = $("#pId").val();
+        if( edit == ""){
+            $.ajax({
+                type: "POST",
+                url: "/CRUDApi/products",
+                data: $("#pForm").serialize(), 
+                success: function(res){
+                    $(".alert").removeClass().addClass("alert alert-"+res.type)
+                    $("#msg").text(res.message);
+                    $(".alert").show();
+                    $("#btnReset").trigger("click");
+                    hideAlert();
+                    getData();
+                }
+            });
+        }else{
+            $.ajax({
+                type: "PUT",
+                url: "/CRUDApi/products",
+                data: $("#pForm").serialize(), 
+                success: function(res){
+                    $(".alert").removeClass().addClass("alert alert-"+res.type)
+                    $("#msg").text(res.message);
+                    $(".alert").show();
+                    $("#btnReset").trigger("click");
+                    hideAlert();
+                    getData();
+                }
+            });
+        }
+    });
+
+    $("#btnReset").on('click',function(){
+        $("#btnSubmit").text("Add");
+        $("#pId").val("");
     });
 
 });
@@ -53,7 +75,7 @@ function getData(){
                     'class' : 'btn btn-sm btn-primary',
                     'data-edit': elm.id,
                     'onClick': 'performAction(this)',
-                    html: 'Update'
+                    html: 'Edit'
                 }).appendTo(td);
     
                 $('<button/>', {
@@ -81,7 +103,6 @@ function hideAlert(){
 
 function performAction(el){
     elm = $(el);
-    console.log(elm.attr("data-del"));
     del = elm.attr("data-del");
     edit = elm.attr("data-edit");
     if( typeof del !== typeof undefined && del !== false){
@@ -94,6 +115,21 @@ function performAction(el){
                 $(".alert").show();
                 hideAlert();
                 getData();
+            }
+        }); 
+    }
+    if( typeof edit !== typeof undefined && edit !== false){
+        $.ajax({
+            type: "GET",
+            url: "/CRUDApi/products/"+edit,
+            success: function(data){
+                single = data[0];
+                $("#pForm").attr("data-edit",single.id);
+                $("#pId").val($.trim(single.id));
+                $("#pName").val($.trim(single.name));
+                $("#pPrice").val(single.price);
+                $("#pDescription").val($.trim(single.description));
+                $("#btnSubmit").text("Update");
             }
         }); 
     }

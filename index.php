@@ -40,7 +40,16 @@
 <legend>Products</legend>
 
 <table class="table table-striped table-responsive">
-    <thead id="pData">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Description</th>
+            <th width="150px">Actions</th>
+        </tr>
+    </thead>
+    <tbody id="pData">
+        
     </tbody>
 </table>
 

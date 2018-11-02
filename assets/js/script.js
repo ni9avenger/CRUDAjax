@@ -35,6 +35,7 @@ function getData(){
         type: "GET",
         url: "/CRUDApi/products",
         success: function(data){
+            $("#pData").html("");
             data.forEach(elm => {
                 tr = $('<tr/>');
     

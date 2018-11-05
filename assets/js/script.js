@@ -54,6 +54,17 @@ function getData(){
         url: "/CRUDApi/products",
         success: function(data){
             $("#pData").html("");
+
+            if(data.length == 0){
+                tr = $('<tr/>');
+                $('<td/>', {
+                    colspan: 4,
+                    class: "text-center h4",
+                    html: "No Records Preset"
+                }).appendTo(tr);
+                tr.appendTo("#pData");                
+            }
+
             data.forEach(elm => {
                 tr = $('<tr/>');
     

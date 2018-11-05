@@ -56,7 +56,7 @@ function getData(){
                 $('<td/>', {
                     colspan: 4,
                     class: "text-center h4",
-                    html: "No Records Preset"
+                    html: "No Records Present"
                 }).appendTo(tr);
                 tr.appendTo("#pData");                
             }
@@ -150,12 +150,12 @@ function notifyUser(title,msg,type){
         message: msg,
     },{
         // settings
-        // element: 'body',
+        element: 'body',
         position: null,
         type: type,
         allow_dismiss: true,
-        newest_on_top: false,
-        showProgressbar: true,  
+        newest_on_top: true,
+        showProgressbar: false,  
         placement: {
             from: "bottom",
             align: "right"
@@ -163,12 +163,12 @@ function notifyUser(title,msg,type){
         offset: 20,
         spacing: 10,
         z_index: 1031,
-        delay: 6000,
+        delay: 2000,
         timer: 1000,
         mouse_over: null,
         animate: {
-            enter: 'animated bounceInUp',
-            exit: 'animated bounceOutUp'
+            enter: 'animated fadeInUp',
+            exit: 'animated fadeOutUp'
         },
         onShow: null,
 	    onShown: null,

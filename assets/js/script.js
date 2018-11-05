@@ -81,21 +81,22 @@ function getData(){
                 }).appendTo(tr);
                 
                 td = $('<td/>');
+                $('<span/>',{class: 'glyphicon glyphicon-pencil'}).appendTo(
                 $('<button/>', {
                     'type' : 'button',
                     'class' : 'btn btn-sm btn-primary',
                     'data-edit': elm.id,
-                    'onClick': 'performAction(this)',
-                    html: 'Edit'
-                }).appendTo(td);
-    
+                    'onClick': 'performAction(this)'
+                }).appendTo(td));
+
+                
+                $('<span/>',{class: 'glyphicon glyphicon-trash'}).appendTo(
                 $('<button/>', {
                     'type' : 'button',
                     'class' : 'btn btn-sm btn-danger',
                     'data-del': elm.id,
-                    'onClick': 'performAction(this)',
-                    html: 'Delete'
-                }).appendTo(td);
+                    'onClick': 'performAction(this)'
+                }).appendTo(td));
 
                 td.appendTo(tr);
     
@@ -145,3 +146,4 @@ function performAction(el){
         }); 
     }
 }
+

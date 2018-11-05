@@ -15,9 +15,7 @@ $(document).ready( function() {
                 url: "/CRUDApi/products",
                 data: $("#pForm").serialize(), 
                 success: function(res){
-                    $(".alert").removeClass().addClass("alert alert-"+res.type)
-                    $("#msg").text(res.message);
-                    $(".alert").show();
+                    notifyUser("Success",res.message,res.type)
                     $("#btnReset").trigger("click");
                     hideAlert();
                     getData();
@@ -29,9 +27,7 @@ $(document).ready( function() {
                 url: "/CRUDApi/products",
                 data: $("#pForm").serialize(), 
                 success: function(res){
-                    $(".alert").removeClass().addClass("alert alert-"+res.type)
-                    $("#msg").text(res.message);
-                    $(".alert").show();
+                    notifyUser("Success",res.message,res.type)
                     $("#btnReset").trigger("click");
                     hideAlert();
                     getData();
@@ -122,9 +118,7 @@ function performAction(el){
             type: "DELETE",
             url: "/CRUDApi/products/"+del,
             success: function(res){
-                $(".alert").removeClass().addClass("alert alert-"+res.type)
-                $("#msg").text(res.message);
-                $(".alert").show();
+                notifyUser("Success",res.message,res.type)
                 hideAlert();
                 getData();
             }
@@ -147,3 +141,49 @@ function performAction(el){
     }
 }
 
+
+function notifyUser(title,msg,type){
+    $.notify({
+        // options
+        icon: 'glyphicon glyphicon-check',
+        title: title,
+        message: msg,
+    },{
+        // settings
+        // element: 'body',
+        position: null,
+        type: type,
+        allow_dismiss: true,
+        newest_on_top: false,
+        showProgressbar: true,  
+        placement: {
+            from: "bottom",
+            align: "right"
+        },
+        offset: 20,
+        spacing: 10,
+        z_index: 1031,
+        delay: 6000,
+        timer: 1000,
+        mouse_over: null,
+        animate: {
+            enter: 'animated bounceInUp',
+            exit: 'animated bounceOutUp'
+        },
+        onShow: null,
+	    onShown: null,
+	    onClose: null,
+	    onClosed: null,
+        icon_type: 'class',
+        template: 
+        '<div data-notify="container" class="col-xs-11 col-sm-3 alert alert-{0}" role="alert">' +
+            '<button type="button" aria-hidden="true" class="close" data-notify="dismiss">×</button>' +
+            '<span data-notify="icon"></span> ' +
+            '<span data-notify="title">{1}</span> <br>' +
+            '<span data-notify="message">{2}</span>' +
+            '<div class="progress" data-notify="progressbar">' +
+                '<div class="progress-bar progress-bar-{0}" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;"></div>' +
+            '</div>' +
+        '</div>' 
+    });
+}

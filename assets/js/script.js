@@ -157,7 +157,7 @@ function notifyUser(title,msg,type){
         newest_on_top: true,
         showProgressbar: false,  
         placement: {
-            from: "bottom",
+            from: "top",
             align: "right"
         },
         offset: 20,
